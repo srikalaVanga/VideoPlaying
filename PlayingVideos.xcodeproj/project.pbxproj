@@ -13,7 +13,6 @@
 		80232BEE2200245C0044C169 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232BED2200245C0044C169 /* DetailViewController.swift */; };
 		80232BF12200284F0044C169 /* RelatedVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232BEF2200284F0044C169 /* RelatedVideoTableViewCell.swift */; };
 		80232BF22200284F0044C169 /* RelatedVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80232BF02200284F0044C169 /* RelatedVideoTableViewCell.xib */; };
-		80232BF42200368F0044C169 /* VideoPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232BF32200368F0044C169 /* VideoPlayViewController.swift */; };
 		804ED1C921FF2D3B00E82F10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804ED1C821FF2D3B00E82F10 /* AppDelegate.swift */; };
 		804ED1CB21FF2D3B00E82F10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804ED1CA21FF2D3B00E82F10 /* ViewController.swift */; };
 		804ED1CE21FF2D3B00E82F10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 804ED1CC21FF2D3B00E82F10 /* Main.storyboard */; };
@@ -35,7 +34,6 @@
 		80232BED2200245C0044C169 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		80232BEF2200284F0044C169 /* RelatedVideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedVideoTableViewCell.swift; sourceTree = "<group>"; };
 		80232BF02200284F0044C169 /* RelatedVideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RelatedVideoTableViewCell.xib; sourceTree = "<group>"; };
-		80232BF32200368F0044C169 /* VideoPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayViewController.swift; sourceTree = "<group>"; };
 		804ED1C521FF2D3B00E82F10 /* PlayingVideos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayingVideos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		804ED1C821FF2D3B00E82F10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		804ED1CA21FF2D3B00E82F10 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 				804ED1CA21FF2D3B00E82F10 /* ViewController.swift */,
 				804ED1DF21FF3CBA00E82F10 /* MainViewController.swift */,
 				80232BED2200245C0044C169 /* DetailViewController.swift */,
-				80232BF32200368F0044C169 /* VideoPlayViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -306,7 +303,6 @@
 				804ED1C921FF2D3B00E82F10 /* AppDelegate.swift in Sources */,
 				804ED1E021FF3CBA00E82F10 /* MainViewController.swift in Sources */,
 				80232BF12200284F0044C169 /* RelatedVideoTableViewCell.swift in Sources */,
-				80232BF42200368F0044C169 /* VideoPlayViewController.swift in Sources */,
 				80232BE9220017330044C169 /* VideoTableViewCell.swift in Sources */,
 				80232BEE2200245C0044C169 /* DetailViewController.swift in Sources */,
 			);

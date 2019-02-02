@@ -12,6 +12,7 @@ import CoreData
 
 class DetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,AVPlayerViewControllerDelegate {
 
+    @IBOutlet weak var continueWatchLabel: UILabel!
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var relatedVideosTableView: UITableView!
@@ -73,12 +74,23 @@ class DetailViewController: UIViewController,UITableViewDelegate,UITableViewData
         fetchRequest1.entity = entityDescription1
         do{
             coredataVideos = try appDelegate.managedObjectContext.fetch(fetchRequest1) as! [VideosInfo]
+            if coredataVideos.count > 0{
             for coredataVideo in coredataVideos {
                 if coredataVideo.url == currentVideoObject?.url{
                     duration = Int(coredataVideo.pausedDuration)
                     print("duration",duration)
+                    if duration == 0{
+                        continueWatchLabel.isHidden = true
+                    }else{
+                        continueWatchLabel.isHidden = false
+                    }
                     break
+                }else{
+                    continueWatchLabel.isHidden = true
                 }
+            }
+            }else{
+                continueWatchLabel.isHidden = true
             }
         }
         catch{

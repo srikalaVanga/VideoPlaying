@@ -144,6 +144,12 @@
                                             <constraint firstAttribute="height" constant="150" id="JaK-RR-99k"/>
                                         </constraints>
                                     </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Continue Watching" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSE-n0-jQb">
+                                        <rect key="frame" x="8" y="122" width="120" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="oAn-jh-igw" secondAttribute="trailing" constant="8" id="0aO-aF-ZEc"/>
@@ -155,6 +161,7 @@
                                     <constraint firstItem="5TF-pO-Dtv" firstAttribute="top" secondItem="wyX-wY-Yzi" secondAttribute="bottom" constant="8" id="Ktu-7w-JyL"/>
                                     <constraint firstItem="UnY-cz-N7e" firstAttribute="centerY" secondItem="wyX-wY-Yzi" secondAttribute="centerY" id="WFQ-gG-6lF"/>
                                     <constraint firstItem="wyX-wY-Yzi" firstAttribute="centerX" secondItem="EU8-Ex-R2s" secondAttribute="centerX" id="WGi-rm-rAR"/>
+                                    <constraint firstItem="FSE-n0-jQb" firstAttribute="leading" secondItem="EU8-Ex-R2s" secondAttribute="leading" constant="8" id="Wgi-jZ-UNG"/>
                                     <constraint firstItem="COD-MN-vTM" firstAttribute="top" secondItem="oAn-jh-igw" secondAttribute="bottom" constant="8" id="Xlb-zf-hNy"/>
                                     <constraint firstAttribute="trailing" secondItem="U5Y-Z6-Z9D" secondAttribute="trailing" constant="8" id="Zq6-t5-769"/>
                                     <constraint firstItem="wyX-wY-Yzi" firstAttribute="leading" secondItem="EU8-Ex-R2s" secondAttribute="leading" id="aUu-Gi-s2V"/>
@@ -163,6 +170,7 @@
                                     <constraint firstItem="U5Y-Z6-Z9D" firstAttribute="top" secondItem="COD-MN-vTM" secondAttribute="bottom" constant="8" id="plo-0C-gzz"/>
                                     <constraint firstItem="5TF-pO-Dtv" firstAttribute="leading" secondItem="EU8-Ex-R2s" secondAttribute="leading" constant="8" id="ugI-IW-Og4"/>
                                     <constraint firstItem="oAn-jh-igw" firstAttribute="top" secondItem="5TF-pO-Dtv" secondAttribute="bottom" constant="8" id="w0Y-rh-8gA"/>
+                                    <constraint firstItem="5TF-pO-Dtv" firstAttribute="top" secondItem="FSE-n0-jQb" secondAttribute="bottom" constant="20" id="wWz-u2-eAh"/>
                                     <constraint firstItem="wyX-wY-Yzi" firstAttribute="top" secondItem="EU8-Ex-R2s" secondAttribute="top" id="yVA-Q0-9la"/>
                                 </constraints>
                             </scrollView>
@@ -177,6 +185,7 @@
                         <viewLayoutGuide key="safeArea" id="2nm-Em-BfQ"/>
                     </view>
                     <connections>
+                        <outlet property="continueWatchLabel" destination="FSE-n0-jQb" id="dS9-PI-JMP"/>
                         <outlet property="descriptionLabel" destination="oAn-jh-igw" id="ueR-bn-cpb"/>
                         <outlet property="relatedVideosTableView" destination="U5Y-Z6-Z9D" id="phR-VK-x5f"/>
                         <outlet property="tableViewHeightConstraint" destination="JaK-RR-99k" id="pn8-cV-sEY"/>
