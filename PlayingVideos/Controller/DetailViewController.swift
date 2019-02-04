@@ -47,7 +47,6 @@ class DetailViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         relatedVideosTableView.register(UINib(nibName: "RelatedVideoTableViewCell", bundle: nil), forCellReuseIdentifier: "RelatedVideoCell")
         
-        print("videoId",videoId)
         for video in videos!{
             if video.id == videoId{
                currentVideoObject = video
@@ -78,7 +77,6 @@ class DetailViewController: UIViewController,UITableViewDelegate,UITableViewData
             for coredataVideo in coredataVideos {
                 if coredataVideo.url == currentVideoObject?.url{
                     duration = Int(coredataVideo.pausedDuration)
-                    print("duration",duration)
                     if duration == 0{
                         continueWatchLabel.isHidden = true
                     }else{
@@ -121,7 +119,6 @@ class DetailViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     @IBAction func playAction(_ sender: Any) {
         videoUrls.removeAll()
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let index = Int(videoId)! - 1
         var j : Int! = index
         for _ in videos!{
@@ -142,7 +139,6 @@ class DetailViewController: UIViewController,UITableViewDelegate,UITableViewData
         })
     }
     @objc func playerDidFinishPlaying(note: NSNotification) {
-        print("Video Finished")
         saveVideoInfoInCoredata(duration: 0)
         count += 1
         currentUrl = videoUrls[count]
@@ -168,13 +164,10 @@ class DetailViewController: UIViewController,UITableViewDelegate,UITableViewData
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if (keyPath == "rate") {
             if player.rate > 0 {
-                print("video started")
             }
             else{
-                print("paused")
                 self.currentDuration = Int(CMTimeGetSeconds(self.player.currentTime()))
                 self.pausedDuration = self.currentDuration
-                print("pausedDuration",self.pausedDuration)
                 self.saveVideoInfoInCoredata(duration: self.pausedDuration)
             }
         }
@@ -200,9 +193,7 @@ class DetailViewController: UIViewController,UITableViewDelegate,UITableViewData
                         coredataVideo.setValue(duration, forKey: "pausedDuration")
                         do {
                             try appDelegate.managedObjectContext.save()
-                            print("saved",appDelegate.managedObjectContext)
                         } catch {
-                            print("Could not save")
                         }
                         return
                     }
@@ -211,45 +202,33 @@ class DetailViewController: UIViewController,UITableViewDelegate,UITableViewData
                     }
                 }
                 if isExists == false{
-                    let managedContext = appDelegate.managedObjectContext
-                    let entity = NSEntityDescription.entity(forEntityName: "VideosInfo",in: managedContext)
-                    let record = NSManagedObject(entity: entity!,insertInto:managedContext)
-                    record.setValue(currentVideoObject?.id, forKey: "id")
-                    record.setValue(currentVideoObject?.thumb, forKey: "thumb")
-                    record.setValue(currentVideoObject?.url, forKey: "url")
-                    record.setValue(duration, forKey: "pausedDuration")
-                    coredataVideos.append(record as! VideosInfo)
-                    do {
-                        try appDelegate.managedObjectContext.save()
-                        print("saved",appDelegate.managedObjectContext)
-                    } catch {
-                        print("Could not save")
-                    }
+                    addingNewRecord()
                 }
                 else{
                     return
                 }
             }
             else{
-                let managedContext = appDelegate.managedObjectContext
-                let entity = NSEntityDescription.entity(forEntityName: "VideosInfo",in: managedContext)
-                let record = NSManagedObject(entity: entity!,insertInto:managedContext)
-                record.setValue(currentVideoObject?.id, forKey: "id")
-                record.setValue(currentVideoObject?.thumb, forKey: "thumb")
-                record.setValue(currentVideoObject?.url, forKey: "url")
-                record.setValue(duration, forKey: "pausedDuration")
-                coredataVideos.append(record as! VideosInfo)
-                do {
-                    try appDelegate.managedObjectContext.save()
-                    print("saved",appDelegate.managedObjectContext)
-                } catch {
-                    print("Could not save")
-                }
+                addingNewRecord()
             }
         }
         catch{
         }
     }
+        func addingNewRecord(){
+            let managedContext = appDelegate.managedObjectContext
+            let entity = NSEntityDescription.entity(forEntityName: "VideosInfo",in: managedContext)
+            let record = NSManagedObject(entity: entity!,insertInto:managedContext)
+            record.setValue(currentVideoObject?.id, forKey: "id")
+            record.setValue(currentVideoObject?.thumb, forKey: "thumb")
+            record.setValue(currentVideoObject?.url, forKey: "url")
+            record.setValue(duration, forKey: "pausedDuration")
+            coredataVideos.append(record as! VideosInfo)
+            do {
+                try appDelegate.managedObjectContext.save()
+            } catch {
+            }
+        }
   
     /*
     // MARK: - Navigation

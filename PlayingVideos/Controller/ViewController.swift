@@ -26,7 +26,6 @@ class ViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate {
     @IBAction func signInAction(_ sender: Any) {
         let login_by = UserDefaults.standard.object(forKey: "Login") as? String
         if login_by != nil{
-             print("already logged in")
         }else{
         GIDSignIn.sharedInstance().signIn()
         }
@@ -38,7 +37,6 @@ class ViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegate {
             let mainVC = storyboard.instantiateViewController(withIdentifier: "MainVC") as! MainViewController
             let nav = UINavigationController(rootViewController: mainVC)
             self.appDelegate.window?.rootViewController = nav
-            print("logged in")
         }
         else{
             print("error")
